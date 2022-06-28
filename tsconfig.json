@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"allowJs": true,
+		"checkJs": true,
+		"outDir": "./build",
+		"module": "commonjs",
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true
+	},
+	"include": ["./src/**/*", "./src/*.json"]
+}
