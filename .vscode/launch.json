@@ -1,0 +1,29 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "pwa-node",
+			"request": "launch",
+			"name": "Launch",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${workspaceFolder}/src/index.ts",
+			"outFiles": ["${workspaceFolder}/build/**/*.js"]
+		},
+		{
+			"type": "pwa-node",
+			"request": "launch",
+			"name": "Guild Deploy",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${workspaceFolder}/src/guild-deploy-commands.ts",
+			"outFiles": ["${workspaceFolder}/build/**/*.js"]
+		},
+		{
+			"type": "pwa-node",
+			"request": "launch",
+			"name": "Global Deploy",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${workspaceFolder}/src/global-deploy-commands.ts",
+			"outFiles": ["${workspaceFolder}/build/**/*.js"]
+		}
+	]
+}
