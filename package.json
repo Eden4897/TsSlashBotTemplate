@@ -19,7 +19,6 @@
 		"dotenv": "^16.0.1"
 	},
 	"devDependencies": {
-		"@discordjs/rest": "^0.5.0",
 		"@types/node": "^18.0.0"
 	}
 }
