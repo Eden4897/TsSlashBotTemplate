@@ -11,7 +11,6 @@ import {
 import { readdir } from 'fs';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import path = require('path');
-import { commands } from '@illegalrazer/slash-commands';
 require('dotenv').config();
 
 const bot: Client = new Client({
@@ -35,19 +34,7 @@ class MemberAccess extends Access {
 	}
 }
 
-export { bot, commands };
-
-export class Command {
-	data: Pick<
-		SlashCommandBuilder,
-		'toJSON' | 'name' | 'description' | 'options'
-	>;
-	access: any;
-	execute: (interaction: CommandInteraction) => any;
-	constructor(opt: Command) {
-		Object.assign(this, opt);
-	}
-}
+export { bot };
 
 readdir(path.join(__dirname, 'events'), (err, files) => {
 	if (err) return console.error;
