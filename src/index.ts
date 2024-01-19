@@ -1,24 +1,39 @@
 import {
 	Client,
-	Collection,
 	CommandInteraction,
 	TextChannel,
-	MessageEmbed,
+	GatewayIntentBits,
+	Partials,
+	EmbedBuilder,
+	GuildMember,
+	User,
 } from 'discord.js';
 import { readdir } from 'fs';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import path = require('path');
+import { commands } from '@illegalrazer/slash-commands';
 require('dotenv').config();
 
 const bot: Client = new Client({
 	intents: [
-		'GUILD_MESSAGES',
-		'DIRECT_MESSAGES',
-		'GUILD_INTEGRATIONS',
-		'GUILDS',
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.DirectMessages,
+		GatewayIntentBits.Guilds
 	],
-	partials: ['CHANNEL'],
-});
+	partials: [Partials.Channel]
+})
+
+class Access {
+	has_access(user: GuildMember|User){
+		return false
+	}
+}
+
+class MemberAccess extends Access {
+	has_access(user: GuildMember|User) {
+		return true
+	}
+}
 
 export { bot, commands };
 
@@ -27,26 +42,12 @@ export class Command {
 		SlashCommandBuilder,
 		'toJSON' | 'name' | 'description' | 'options'
 	>;
+	access: any;
 	execute: (interaction: CommandInteraction) => any;
 	constructor(opt: Command) {
 		Object.assign(this, opt);
 	}
 }
-
-let commands: Collection<string, Command> = new Collection<string, Command>();
-
-readdir(path.join(__dirname, 'commands'), (err, files) => {
-	if (err) return console.error;
-	files.forEach((file: string) => {
-		if (!file.endsWith(`.js`)) return;
-		const command: Command = require(path.join(
-			__dirname,
-			'commands',
-			file
-		)).default;
-		commands.set(command.data.name, command);
-	});
-});
 
 readdir(path.join(__dirname, 'events'), (err, files) => {
 	if (err) return console.error;
@@ -69,7 +70,7 @@ process.on('uncaughtException', async (e) => {
 	const logChannel = <TextChannel>await bot.channels.fetch(process.env.LOG);
 	logChannel?.send({
 		embeds: [
-			new MessageEmbed()
+			new EmbedBuilder()
 				.setTitle(`${e.name}: ${e.message}`)
 				.setDescription(`\`${e.stack}\``),
 		],

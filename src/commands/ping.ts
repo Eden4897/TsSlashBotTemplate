@@ -1,6 +1,7 @@
-import { Message, MessageEmbed, TextChannel } from 'discord.js';
-import { bot, Command } from '..';
+import { Message, EmbedBuilder, TextChannel } from 'discord.js';
+import { bot } from '..';
 import { SlashCommandBuilder } from '@discordjs/builders';
+import { Command } from '@illegalrazer/slash-commands';
 
 export default new Command({
 	data: new SlashCommandBuilder()
@@ -12,7 +13,7 @@ export default new Command({
 			fetchReply: true,
 		});
 
-		const embed: MessageEmbed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setColor(`#384c5c`)
 			.setTitle(`🏓 Pong!`)
 			.setDescription(
@@ -28,7 +29,7 @@ export default new Command({
 		const logChannel = <TextChannel>await bot.channels.fetch(process.env.LOG);
 		logChannel?.send({
 			embeds: [
-				new MessageEmbed().setTitle('/ping').setAuthor({
+				new EmbedBuilder().setTitle('/ping').setAuthor({
 					name: interaction.user.tag,
 					iconURL: interaction.user.avatarURL(),
 				}),

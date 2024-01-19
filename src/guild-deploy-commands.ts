@@ -1,14 +1,14 @@
 import { REST } from '@discordjs/rest';
-import { Routes } from 'discord-api-types/v9';
 import { Command } from '.';
 import { readdir } from 'fs/promises';
 import path = require('path');
+import { Routes } from 'discord.js'
 
 require('dotenv').config();
 
 const commands: Array<any> = [];
 
-const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+const rest = new REST().setToken(process.env.TOKEN);
 
 (async () => {
 	const files = await readdir(path.join(__dirname, 'commands'));

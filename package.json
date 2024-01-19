@@ -7,18 +7,19 @@
 		"dev": "tsc -w",
 		"build": "tsc",
 		"launch": "node build/index.js",
-		"devdeploy": "tsc && node build/guild-deploy-commands.js",
-		"deploy": "tsc && node build/global-deploy-commands.js"
+		"guild-deploy": "tsc && node build/guild-deploy-commands.js",
+		"global-deploy": "tsc && node build/global-deploy-commands.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"axios": "^0.27.2",
-		"discord.js": "13.6",
-		"dotenv": "^16.0.1"
+		"@illegalrazer/slash-commands": "^0.14.0",
+		"axios": "^1.6.5",
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.3.1"
 	},
 	"devDependencies": {
-		"@types/node": "^18.0.0"
+		"@types/node": "^20.11.5"
 	}
 }

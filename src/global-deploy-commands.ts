@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const commands: Array<any> = [];
 
-const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+const rest = new REST().setToken(process.env.TOKEN);
 
 (async () => {
 	const files = await readdir(path.join(__dirname, 'commands'));
