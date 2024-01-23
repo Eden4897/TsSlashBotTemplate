@@ -1,17 +1,12 @@
 import {
 	Client,
-	CommandInteraction,
 	TextChannel,
 	GatewayIntentBits,
 	Partials,
-	EmbedBuilder,
-	GuildMember,
-	User,
+	EmbedBuilder
 } from 'discord.js';
 import { readdir } from 'fs';
-import { SlashCommandBuilder } from '@discordjs/builders';
 import path = require('path');
-import { commands } from '@illegalrazer/slash-commands';
 require('dotenv').config();
 
 const bot: Client = new Client({
@@ -23,31 +18,7 @@ const bot: Client = new Client({
 	partials: [Partials.Channel]
 })
 
-class Access {
-	has_access(user: GuildMember|User){
-		return false
-	}
-}
-
-class MemberAccess extends Access {
-	has_access(user: GuildMember|User) {
-		return true
-	}
-}
-
-export { bot, commands };
-
-export class Command {
-	data: Pick<
-		SlashCommandBuilder,
-		'toJSON' | 'name' | 'description' | 'options'
-	>;
-	access: any;
-	execute: (interaction: CommandInteraction) => any;
-	constructor(opt: Command) {
-		Object.assign(this, opt);
-	}
-}
+export { bot };
 
 readdir(path.join(__dirname, 'events'), (err, files) => {
 	if (err) return console.error;
