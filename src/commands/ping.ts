@@ -25,15 +25,5 @@ export default new Command({
 			);
 
 		await interaction.editReply({ embeds: [embed], content: null });
-
-		const logChannel = <TextChannel>await bot.channels.fetch(process.env.LOG);
-		logChannel?.send({
-			embeds: [
-				new EmbedBuilder().setTitle('/ping').setAuthor({
-					name: interaction.user.tag,
-					iconURL: interaction.user.avatarURL(),
-				}),
-			],
-		});
 	},
 });
