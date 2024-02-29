@@ -14,7 +14,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@illegalrazer/slash-commands": "^0.14.1",
+		"@illegalrazer/slash-commands": "^0.14.3",
 		"axios": "^1.6.5",
 		"discord.js": "^14.14.1",
 		"dotenv": "^16.3.1"
