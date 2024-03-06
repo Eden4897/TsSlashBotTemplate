@@ -37,13 +37,5 @@ readdir(path.join(__dirname, 'events'), (err, files) => {
 bot.login(process.env.TOKEN);
 
 process.on('uncaughtException', async (e) => {
-	console.log(e);
-	const logChannel = <TextChannel>await bot.channels.fetch(process.env.LOG);
-	logChannel?.send({
-		embeds: [
-			new EmbedBuilder()
-				.setTitle(`${e.name}: ${e.message}`)
-				.setDescription(`\`${e.stack}\``),
-		],
-	});
+	console.error(e);
 });
