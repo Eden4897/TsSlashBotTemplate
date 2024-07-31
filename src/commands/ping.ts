@@ -1,7 +1,6 @@
-import { Message, EmbedBuilder, TextChannel } from 'discord.js';
-import { bot } from '..';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { Command } from '@illegalrazer/slash-commands';
+import { EmbedBuilder, Message } from 'discord.js';
 
 export default new Command({
 	data: new SlashCommandBuilder()
