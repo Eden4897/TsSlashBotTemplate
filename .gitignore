@@ -6,3 +6,4 @@ build
 !launch.json
 .env
 .DS_Store
+*.yaml
