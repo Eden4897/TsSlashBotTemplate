@@ -1,9 +1,7 @@
 import {
 	Client,
-	TextChannel,
 	GatewayIntentBits,
-	Partials,
-	EmbedBuilder
+	Partials
 } from 'discord.js';
 import { readdir } from 'fs';
 import path = require('path');
