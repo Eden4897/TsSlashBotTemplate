@@ -14,11 +14,11 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@illegalrazer/slash-commands": "^0.14.3",
-		"discord.js": "^14.14.1",
-		"dotenv": "^16.3.1"
+		"@illegalrazer/slash-commands": "^0.14.4",
+		"discord.js": "^14.16.2",
+		"dotenv": "^16.4.5"
 	},
 	"devDependencies": {
-		"@types/node": "^20.11.5"
+		"@types/node": "^20.16.5"
 	}
 }
